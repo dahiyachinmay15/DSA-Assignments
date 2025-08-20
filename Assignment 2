@@ -169,15 +169,6 @@ void reverse(char str1[]){
 }
 }
 
-void delvowels( char str1[]){ //ERROR CODE NOT WORKING
-    int n=strlen(str1);
-    for(int i=0;i<n;i++){
-        if(str1[i]== 'a'||'e'||'i'||'o'||'u'||'A'||'E'||'I'||'O'||'U'){
-            str1[i]=str1[i+1];
-        }
-    }
-}
-
 void sortstr(char str[]) {
   int l = strlen(str);
   for (int i = 0; i < l - 1; i++) {
@@ -191,10 +182,6 @@ void sortstr(char str[]) {
   }
 }
 
-void chngcase(char str[]){ 
-
-
-}
 
 int main(){
  char str1[100]="zelo ";
