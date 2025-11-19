@@ -264,4 +264,86 @@ class bst{
     }
 };
 
+//Q4
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = NULL;
+    }
+};
+
+class Tree {
+public:
+    Node* prev = NULL;   // will store previous node in inorder traversal
+
+    // Inorder BST checker
+    bool isBST(Node* root) {
+        if (root == NULL)
+            return true;
+
+        // Check left subtree
+        if (!isBST(root->left))
+            return false;
+
+        // Compare current node with previous visited node
+        if (prev != NULL && root->data <= prev->data)
+            return false;
+
+        prev = root;  // update previous node
+
+        // Check right subtree
+        return isBST(root->right);
+    }
+};
+
+//--------------ADDITIONAL QUES--------------------------//
+
+//Q1
+include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = NULL;
+    }
+};
+
+class Tree {
+public:
+ 
+    bool isLeaf(Node* node) {
+        return (node != NULL && node->left == NULL && node->right == NULL);
+    }
+
+   
+    int sumOfLeaves(Node* root) {
+        if (root == NULL)
+            return 0;
+
+        int sum = 0;
+
+        // If left child is a leaf, add it
+        if (isLeaf(root->left))
+            sum += root->left->data;
+
+        // Recur for left and right subtrees
+        return sum + sumOfLeaves(root->left) + sumOfLeaves(root->right);
+    }
+};
+
+
 
